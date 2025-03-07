@@ -91,7 +91,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",  # ✅ Ensure ENGINE is specified
+        "NAME": BASE_DIR / "db.sqlite3",  # ✅ SQLite database file
+    }
 }
 
 
