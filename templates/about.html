@@ -1,0 +1,79 @@
+{% extends 'basic.html' %}
+{% block title %} My Professional Journey {% endblock title %}
+{% block body %}
+{% load static %}
+
+<section id="about" class="about" style="background: linear-gradient(to right, #e3f2fd, #bbdefb); padding: 60px 0; color: #212529; font-family: 'Poppins', sans-serif;">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title text-center">
+      <h2 style="color: #0d47a1; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">My Professional Journey</h2>
+      <p class="lead" style="font-style: italic; color: #1565c0;">Innovating with Data & Cloud, Exploring Full Stack Development</p>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-center" data-aos="zoom-in">
+        <div class="profile-container" style="
+          background: linear-gradient(135deg, #42a5f5, #1e88e5);
+          border-radius: 50%;
+          padding: 10px;
+          display: inline-block;
+          box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);">
+          <img src="{% static 'assets/img/default-profile.png' %}" class="img-fluid rounded-circle" alt="Profile Image" style="max-width: 250px; border: 5px solid white;">
+        </div>
+      </div>
+      <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+        <h3 style="color: #0d47a1; font-weight: bold;">Data Engineer &amp; Full Stack Developer Aspirant</h3>
+        <p class="fst-italic" style="font-size: 18px; color: #1e88e5;">Passionate about Big Data, Cloud Computing, and Software Development.</p>
+        
+        <h4 style="color: #0d47a1; font-weight: bold; border-bottom: 3px solid #42a5f5; display: inline-block; padding-bottom: 5px;">Personal Details</h4>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <ul class="list-unstyled">
+              <li><i class="bi bi-chevron-right" style="color: #1976d2;"></i> <strong>Company:</strong> <span>ITC Infotech</span></li>
+              <li><i class="bi bi-chevron-right" style="color: #1976d2;"></i> <strong>Birthday:</strong> <span>8 Sep 2001</span></li>
+              <li><i class="bi bi-chevron-right" style="color: #1976d2;"></i> <strong>Email:</strong> <span>logeshsubramani89@gmail.com</span></li>
+              <li><i class="bi bi-chevron-right" style="color: #1976d2;"></i> <strong>Phone:</strong> <span>683591297</span></li>
+              <li><i class="bi bi-chevron-right" style="color: #1976d2;"></i> <strong>Location:</strong> <span>Tiruchengode, Tamil Nadu, India</span></li>
+            </ul>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <ul class="list-unstyled">
+              <li><i class="bi bi-chevron-right" style="color: #1976d2;"></i> <strong>Age:</strong> <span>23</span></li>
+              <li><i class="bi bi-chevron-right" style="color: #1976d2;"></i> <strong>Degree:</strong> <span>B.Tech Computer Science and Business Systems</span></li>
+              <li><i class="bi bi-chevron-right" style="color: #1976d2;"></i> <strong>Certification:</strong> <span>AZ-900 (Planning for DP-203)</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <h4 style="color: #0d47a1; font-weight: bold; border-bottom: 3px solid #42a5f5; display: inline-block; padding-bottom: 5px;">Technical Expertise</h4>
+        <div class="tech-skills" data-aos="fade-up">
+          <span class="badge bg-primary">PySpark</span>
+          <span class="badge bg-secondary">Databricks</span>
+          <span class="badge bg-success">Python</span>
+          <span class="badge bg-danger">Django</span>
+          <span class="badge bg-warning">SQL</span>
+          <span class="badge bg-info">Azure</span>
+          <span class="badge bg-dark">AWS</span>
+        </div>
+
+        <h4 style="color: #0d47a1; font-weight: bold; border-bottom: 3px solid #42a5f5; display: inline-block; padding-bottom: 5px;">Professional Experience</h4>
+        <p data-aos="fade-up">I have developed a web application for <strong>FILE BROWSER</strong> and <strong>PRINTOP</strong> using Django and Python. I optimized the application’s performance, reducing loading times and enhancing responsive design. Currently, I am engaged in data engineering projects, leveraging cloud technologies to build scalable solutions.</p>
+
+        <h4 style="color: #0d47a1; font-weight: bold; border-bottom: 3px solid #42a5f5; display: inline-block; padding-bottom: 5px;">Vision & Future Aspirations</h4>
+        <p data-aos="zoom-in">My goal is to expand my expertise in full-stack development and cloud computing, with a vision of launching my own food truck business that integrates technology-driven solutions for better customer experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: "ease-in-out",
+    once: true,
+    mirror: false
+  });
+</script>
+
+{% endblock body %}

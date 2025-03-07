@@ -1,0 +1,143 @@
+{% extends 'basic.html' %} 
+{% block title %} Contact{% endblock title %}
+
+{% block stylecss %}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<style>
+  /* Full Page Layout */
+  html, body {
+    height: 100%;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Wrapper for Flexbox */
+  .wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  /* Contact Form Card */
+  .contact-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    color: #333;
+    max-width: 350px; /* Further Reduced Form Width */
+    width: 100%;
+  }
+
+  /* Input Fields */
+  .form-control {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 14px;
+    color: #333;
+    transition: 0.3s;
+  }
+
+  .form-control:focus {
+    border-color: #2a5298;
+    box-shadow: 0px 0px 6px rgba(42, 82, 152, 0.3);
+  }
+
+  /* Submit Button */
+  .btn-submit {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    width: 100%;
+    color: white;
+    transition: all 0.3s;
+  }
+
+  .btn-submit:hover {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    transform: scale(1.05);
+  }
+
+  /* Footer at the Bottom */
+  footer {
+    text-align: center;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 12px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-card {
+      padding: 15px;
+      max-width: 100%; /* Full width on mobile */
+    }
+
+    .btn-submit {
+      padding: 9px;
+    }
+  }
+</style>
+{% endblock stylecss %} 
+
+{% block body %}
+<div class="wrapper">
+  <div class="contact-card">
+    <h3 class="text-center mb-3">Contact Me</h3>
+
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>{{message}} </strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    <form action="/contact/" method="post">{% csrf_token %}
+      <div class="form-group">
+        <h5><i class="fas fa-user"></i> Name</h5>
+        <input type="text" class="form-control mb-2" name="name" required/>
+      </div>
+
+      <div class="form-group">
+        <h5><i class="bx bx-envelope"></i> Email</h5>
+        <input type="email" value="{{user.email}}" class="form-control mb-2" name="email" required/>
+      </div>
+
+      <div class="form-group">
+        <h5><i class="fas fa-phone-alt"></i> Phone No.</h5>
+        <input type="number" class="form-control mb-2" name="num" required/>
+      </div>
+
+      <div class="form-group">
+        <h5><i class="far fa-question-circle"></i> How can I help you?</h5>
+        <textarea class="form-control mb-2" name="desc" required></textarea>
+      </div>
+
+      <button class="btn-submit" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- Footer Stays at Bottom -->
+
+
+{% endblock body %}

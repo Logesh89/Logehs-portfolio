@@ -1,0 +1,284 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+    {% block title %}{% endblock title %}
+  </title>
+  <meta content="A portfolio showcasing my expertise in Data Engineering, Cloud Technologies, and Software Development." name="description">
+  <meta content="Data Engineer, Cloud Computing, Python, Django, Azure, AWS, Full Stack Developer" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Raleway:300,400,500|Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Custom CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  {% block stylecss %}{% endblock stylecss %}
+
+  <script>
+    window.onload = function () {
+      if (performance.navigation.type === 1) {
+        window.location.href = "/";
+      }
+    };
+  </script>
+
+  <style>
+    #navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%; /* Full width */
+    }
+
+    #navbar ul li {
+      width: 100%; /* Ensure full width */
+      padding: 5px 0;
+    }
+
+    #navbar ul li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      width: 200px;
+      margin: 0 auto;
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Individual Button Colors */
+    #navbar ul li:nth-child(1) a { background: linear-gradient(45deg, #ff416c, #ff4b2b); }
+    #navbar ul li:nth-child(2) a { background: linear-gradient(45deg, #1e3c72, #2a5298); }
+    #navbar ul li:nth-child(3) a { background: linear-gradient(45deg, #00b09b, #96c93d); }
+    #navbar ul li:nth-child(4) a { background: linear-gradient(45deg, #8e44ad, #c0392b); }
+    /* Hover Effects */
+    #navbar ul li a:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+    }
+    /* Hover Effects */
+    #navbar ul li a:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Hover Effect for Welcome Text */
+    h1.text-light.mt-3 a {
+    transition: all 0.3s ease-in-out;
+    }
+    h1.text-light.mt-3 a:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Hover Effect for Social Links */
+  .social-links a {
+      display: inline-block;
+      font-size: 24px;
+      margin: 0 8px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .social-links a:hover {
+      transform: scale(1.2);
+      box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+  }
+    
+    /* Hero Section Styling */
+    {% if request.path == "/" %}
+    #hero {
+      background: url("{% static 'assets/img/BG.jpg' %}") no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Dark Overlay for Better Text Visibility */
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      z-index: 1;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 2; /* Ensures text appears above overlay */
+      color: #fff;
+    }
+
+    #hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+
+    #hero p {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f9b115;
+    }
+
+    .welcome-message {
+      font-size: 1.8rem;
+      color: #ffffff;
+      
+      margin-bottom: 15px;
+    }
+    {% endif %}
+  </style>
+</head>
+
+<body>
+  <!-- Mobile nav toggle button -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- Header Section -->
+  <header id="header" class="fixed-top d-flex flex-column align-items-center">
+    <div class="profile text-center">
+      <div class="profile-image-container">
+        <img src="{% static 'assets/img/ap.jpg' %}" 
+             onerror="this.onerror=null; this.src='{% static 'assets/img/placeholder.jpg' %}';" 
+             alt="Profile Image" 
+             class="img-fluid">
+      </div>
+      <h1 class="text-light mt-3"><a href="/">Welcome {{ user.username }}</a></h1>
+      <div class="social-links mt-3">
+        <a href="https://twitter.com/LOGESH1489" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/rock.lokesh.39" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/_.lokesh._148?utm_source=qr&igsh=djZ3c3g2Z2R5cHlj" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://join.skype.com/invite/uIEgjbKJxgO8" target="_blank" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="https://www.linkedin.com/in/logesh-s-43b425210/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+
+    <!-- Enhanced Navigation Menu -->
+    <nav id="navbar" class="nav-menu navbar">
+      <ul>
+        <li><a href="/home" class="nav-link scrollto active" style="
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;">
+            <i class="bx bx-home"></i> <span>Home</span></a></li>
+    
+        <li><a href="/about" class="nav-link scrollto" style="
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;">
+            <i class="bx bx-user"></i> <span>About</span></a></li>
+    
+        <li><a href="/contact" class="nav-link scrollto" style="
+            background: linear-gradient(45deg, #00b09b, #96c93d);
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;">
+            <i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+    
+        <li><a href="/myresume" class="nav-link scrollto" style="
+            background: linear-gradient(45deg, #8e44ad, #c0392b);
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;">
+            <i class="bx bx-layout"></i> <span>View my Resume</span></a></li>
+      </ul>
+    </nav>
+    
+  </header>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+  <!-- Hero Section (Only on Landing Page) -->
+  {% if request.path == "/" %}
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h2>👋Hey hi this is LOGESH S</h2>
+      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Data Engineer"></span></p>
+    </div>
+  </section><!-- End Hero -->
+  {% endif %}
+
+  <main id="main">
+    {% block body %}{% endblock body %}
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <div class="container text-center">
+      <div class="copyright">&copy; 2025  All Rights Reserved @LOGESH S</div>
+      
+    </div>
+  </footer>
+
+  <script>
+    // Activate typing effect only on the landing page
+    {% if request.path == "/" %}
+    document.addEventListener("DOMContentLoaded", function () {
+      var typedElement = document.querySelector(".typed");
+      if (typedElement) {
+        var typedStrings = typedElement.getAttribute("data-typed-items").split(", ");
+        new Typed(".typed", {
+          strings: typedStrings,
+          typeSpeed: 5000,
+          backSpeed: 250,
+          
+          loop: true
+        });
+      }
+    });
+    {% endif %}
+  </script>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- JS Files -->
+  {% block scripts %}
+  {% endblock scripts %}
+
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

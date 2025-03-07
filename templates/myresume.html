@@ -1,0 +1,57 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block title %} Resume Preview {% endblock title %}
+
+{% block stylecss %}
+  <style>
+    /* Background Gradient */
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 30px; /* Further moved up */
+    }
+
+    /* PDF Viewer */
+    .pdf-container {
+      width: 80%;
+      height: 85vh; /* Slightly increased height */
+      border: 3px solid white;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 10px auto; /* Further moved up */
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .pdf-container {
+        width: 95%;
+        height: 75vh;
+      }
+    }
+  </style>
+{% endblock stylecss %}
+
+{% block body %}
+  <h1>View My Resume</h1>
+  
+  <div class="pdf-container">
+    <iframe src="{% static 'assets/img/cv.pdf' %}"></iframe>
+  </div>
+{% endblock body %}
